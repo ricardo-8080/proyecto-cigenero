@@ -1,0 +1,207 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+
+html{
+    font-size: 90%;
+    background-color: #a59d2a;
+    margin: 0;
+    padding: 0;
+}
+
+.icon-woman{
+    width: 30px;
+    height: 30px;
+}
+
+.title-with-icon{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.icon-gen{
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.nav-flexbox{
+    display: flex;
+    height: 7vh;
+    background-color: gainsboro;
+    justify-content: space-around;
+    
+}
+.nav-ul{
+    display: flex;
+    gap: 10px;
+}
+.li{
+    font-size: 1rem;
+    display: flex;
+    border-radius: 0.6rem;
+    padding: 0.5rem 1rem ;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: rgb(242, 49, 15);
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh
+}
+
+.personas{
+    box-shadow: 0 4px rgba(0, 0, 0, 0.09);
+    /*display: block;*/
+    /*position: relative;*/
+    max-width: 1500px;
+    margin: 10px auto;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.personas-center{
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+}
+
+.logo-img img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50px;
+    object-fit: cover
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.p{
+    font-size: 1.2rem;
+    text-align: center;
+    width: 80%;
+    line-height: 1.5;
+}
+
+.image-center{
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: brightness(0.9);
+    cursor: pointer;;
+}
+
+.image-center:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+/*body{
+    background:url('http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png') repeat;
+    font-family: "Open Sans",  Impact;
+}*/
+
+
+.area{
+    text-align:center;
+    font-size:3.5em;
+    color:#ffffff;
+    letter-spacing: -6px;
+    font-weight:700;
+    text-transform:uppercase;
+    animation:blur .75s ease-out infinite;
+    text-shadow:0px 0px 5px #fff,
+    0px 0px 7px #fff;
+}
+
+@keyframes blur{
+    from{
+        text-shadow:0px 0px 10px #ffffff,
+        0px 0px 10px #ffffff, 
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 50px #fff,
+        0px 0px 50px #fff,
+        0px 0px 50px #7B96B8,
+        0px 0px 150px #7B96B8,
+        0px 10px 100px #7B96B8,
+        0px 10px 100px #7B96B8,
+        0px 10px 100px #7B96B8,
+        0px 10px 100px #7B96B8,
+        0px -10px 100px #7B96B8,
+        0px -10px 100px #7B96B8;}
+}
+
+
+.estamos {
+    color: rgba(255, 255, 255, 0.61);
+    text-align: center;
+}
+
+.footer-contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    background-color: aqua;
+    border-radius: 25px 25px 0 0;
+    border: solid;
+    height: 125px;
+    width: 100%;
+}
+
+.footer-contactos {
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.5;
+    flex-direction: column;
+    list-style:none;
+}
+
+.footer-iconos {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    transform: scale(1.15);
+}
+
+.container img {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
