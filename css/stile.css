@@ -11,6 +11,20 @@ html{
     padding: 0;
 }
 
+body {
+    background-image: url(../imagenes/buenos-aires-dusk-cityscape-azajigub4hurh0d7.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    max-width: 223vh;
+    margin: auto;
+}
+
+.pagina-especial{
+    color: yellow;
+}
+
 .icon-woman{
     width: 30px;
     height: 30px;
@@ -102,6 +116,7 @@ a:hover {
 .p{
     font-size: 1.2rem;
     text-align: center;
+    color: rgba(231, 235, 7, 0.918);
     width: 80%;
     line-height: 1.5;
 }
@@ -159,9 +174,8 @@ a:hover {
         0px -10px 100px #7B96B8;}
 }
 
-
-.estamos {
-    color: rgba(255, 255, 255, 0.61);
+.estamos{
+    color: white;
     text-align: center;
 }
 
@@ -204,4 +218,3 @@ a:hover {
         transform: translateY(-20px);
     }
 }
-
