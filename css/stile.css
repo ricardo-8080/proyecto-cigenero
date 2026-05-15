@@ -21,13 +21,37 @@ body {
     margin: auto;
 }
 
-.pagina-especial{
+.paging-especial{
     color: yellow;
     width: min(90%, 500px);
     margin: auto;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+form {
+    margin: auto;
+    border: solid;
+    border-color: black;
+    padding: 10%;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+fieldset{
+    border: 2px solid blanchedalmond; 
+    color: rgb(218, 240, 18); 
+    padding: 20px;
+    display: grid;
+    grid-template-columns: max-content 1fr; 
+    gap: 12px 15px;
+    align-items: center;
+    margin-bottom: 0.9%;
+}
+
+fieldset + .contend-bootes {
+    margin-top: 10px; 
 }
 
 textarea {
@@ -210,6 +234,7 @@ a:hover {
     border: solid;
     height: 1250%;
     width: 100%;
+    flex-wrap: wrap;
     /*padding: clamp(1rem, 3vw, 3rem);*/
 }
 

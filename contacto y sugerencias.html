@@ -19,7 +19,7 @@
         
     </header>
 
-    <main class="pagina-especial">
+    <main class="paging-especial">
         <h1><i><u> Formulario:</u></i></h1>
             <br>
         <form action="https://formcarry.com/s/-TWjE_vDo7h" method="post" enctype="multipart/form-data">
@@ -63,41 +63,36 @@
                 <textarea name="comentario" cols="60" rows="5" placeholder="deja tu comentario" maxlength="150" required></textarea>
             
             </label>
-            <br>
-            <br>
+
             <label>Adjuntar archivo (opcional):
 
                 <input type="file" name="file" accept="image/*,.pdf,.doc,.docx,.txt,.jpg,.png">
             
             </label>
-            <br>
-            <br>
-            <fieldset>
-                <legend>Datos Opcionales</legend>
-                <label>Direccion:
-                    
-                    <input type="text" name="direccion">
-            
-                </label>
-                <label>Nro:
-                    <input type="text" name="numero">
-                </label>
-                <label>Codigo postal:
-                    <input type="text" name="codigo_postal">
 
-                </label>
-                <br>
-                <br>
-                <label>Telefono:
-                    <input type="text" name="telefono">
-                    Celular:<input type="text" name="celular">
-                </label>
-
+            <fieldset> 
+                <legend>Datos Opcionales</legend> 
+    
+                <label for="dir">Direccion:</label> 
+                <input type="text" id="dir" name="direccion"> 
+    
+                <label for="nro">Nro:</label> 
+                <input type="text" id="nro" name="numero"> 
+    
+                <label for="cp">Codigo postal:</label> 
+                <input type="text" id="cp" name="codigo_postal"> 
+    
+                <label for="tel">Telefono:</label> 
+                <input type="text" id="tel" name="telefono"> 
+    
+                <label for="cel">Celular:</label> 
+                <input type="text" id="cel" name="celular"> 
             </fieldset>
-            <br>
-            <input type="submit" value="Enviar">
-            <input type="reset" value="Borrar">
-
+            
+            <div class="conten-bootes">
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Borrar">
+            </div>
         </form>
 
     </main>
