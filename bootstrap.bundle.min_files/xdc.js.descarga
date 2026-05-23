@@ -1,0 +1,6 @@
+(function () {
+    BizTrackingA.XdcCallback({
+        xdc: "08fa5a8b4afd41e2b122fbe71bbbbe87"
+    });
+})();
+;
