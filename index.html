@@ -16,7 +16,7 @@
     <header>
         <div class="header-spacer"></div>
         <div class="title-with-icon">
-            <img src="./iconos/igualdad-de-genero.gif" alt="icono de genero" class="icon-gen">
+            <img src="./iconos/igualdad-de-genero.gif" alt="icono de genero" class="icon-gen" onclick="location.reload();">
             <h1>CIGENERO</h1>
         </div>
 
@@ -32,7 +32,7 @@
         </div>
         <nav class="nav-flexbox">
             <ul class="nav-ul">
-                <li class="nav-ul li"><a href="INICIO.html">Inicio</a></li>
+                <li class="nav-ul li"><a href="index.html">Inicio</a></li>
                 <li class="nav-ul li"><a href="CONTACTO Y SUGERENCIAS.html">Contactos y Sugerencias</a></li>
                 <li class="nav-ul li"><a href="TE PODEMOS AYUDAR.html">Te Podemos Ayudar</a></li>
             </ul>
@@ -41,7 +41,14 @@
 
     <main class="logo">
 
-        <div class="logo-img">
+        <a href="#" id="ghost-widget" class="widget-fantasma">
+            <span class="fantasma-icono">🕒</span>
+            <span id="reloj-digital">00:00</span>
+            <span class="fantasma-separador">|</span>
+            <span id="clima-digital">Cargando...</span>
+        </a>
+
+        <div class="logo-img img">
 
             <img src="imagenes/logo-cigenero.webp" alt="Centro Integral de Genero logo" class="image-center">
 
@@ -86,6 +93,8 @@
         </div>
 
     </footer>
+    
+    <script src="js/hora-clima.js"></script>
     <script src="bootstrap.bundle.min.js"></script>
 
 </body>

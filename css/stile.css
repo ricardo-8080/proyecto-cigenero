@@ -73,6 +73,7 @@ img {
     height: auto;
     border-radius: 20px;
     display: block;
+    cursor: pointer;
 }
 
 .nav-flexbox {
@@ -112,12 +113,59 @@ a:hover {
     color: rgb(242, 49, 15);
 }
 
-.logo{
+.logo {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     height: 100vh
+}
+
+.widget-fantasma {
+    position: fixed;
+    bottom: 350px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Bordes y Estética */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 30px;
+    padding: 12px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #2c3e50;
+    text-decoration: none;
+    
+    /* Control de capas y animación */
+    z-index: 99999;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.widget-fantasma:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    color: #000000;
+}
+
+.fantasma-separador {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.logo-img img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50px;
+    object-fit: cover
 }
 
 .personas{
@@ -131,13 +179,6 @@ a:hover {
     display: block;
     margin: 0 auto;
     height: auto;
-}
-
-.logo-img img{
-    width: 300px;
-    height: 300px;
-    border-radius: 50px;
-    object-fit: cover
 }
 
 .container-especial{
