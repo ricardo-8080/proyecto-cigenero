@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+body {
+    background-image: linear-gradient(rgba(235, 7, 7, 0.918), rgba(0,0,0,0.4)), url(../../imagenes/buenos-aires-dusk-cityscape-azajigub4hurh0d7.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    max-width: 223vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-flexbox {
+    display: flex;
+    align-items: center;
+    background-color: rgb(13, 224, 189);
+    padding: 0.75rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.nav-ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;              /* Espacio de separación entre el ícono y el texto */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: inherit;   
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(235, 18, 18, 0.712);
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.icono-volver {
+    width: 20px;           /* Ajusta el ancho a tu gusto */
+    height: 20px;          /* Ajusta el alto (recomiendo que sea igual al ancho) */
+    object-fit: contain;  /* Evita que la imagen se deforme o se estire */
+}
+
+.btn-volver:hover {
+    color: #ffffff;
+    background-color: #69bd0a;
+    transform: translateX(-3px);
+}
+

@@ -22,20 +22,6 @@ body {
     flex-direction: column;
 }
 
-main {
-    flex: 1;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
 .nav-flexbox {
     display: flex;
     align-items: center;
@@ -68,4 +54,130 @@ img {
     color: #ffffff;
     background-color: #2c3e50;
     transform: translateX(-3px);
+}
+
+/* NUEVOS ESTILOS: TARJETAS DE SELECCIÓN DE PERFIL */
+
+/* Centramos el contenido dentro de tu etiqueta <main> existente */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente si sobra espacio */
+    align-items: center;     /* Centra el contenido horizontalmente */
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;          /* Centra el bloque main en pantallas gigantes */
+    padding: 1.5rem;    /* Genera el colchón de espacio arriba y abajo */
+}
+
+/* El cuadro blanco de los perfiles */
+.contenedor-ingreso {
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    max-width: 750px;
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+    margin: 3rem auto; 
+}
+
+/* Banner de bienvenida interno */
+.banner-ingreso {
+    background-color: rgb(147, 13, 224); /* Acoplado al violeta */
+    color: #ffffff;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+}
+
+.banner-ingreso h2 {
+    font-size: 1.8rem;
+    font-family: sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.banner-ingreso p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: sans-serif;
+}
+
+/* Distribución en grilla flexible para las dos opciones */
+.opciones-acceso {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 2.5rem 2rem;
+}
+
+/* Cada tarjeta individual de perfil */
+.tarjeta-acceso {
+    border: 1px solid rgba(147, 13, 224, 0.2);
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Animación sutil al pasar el mouse sobre la tarjeta */
+.tarjeta-acceso:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(147, 13, 224, 0.15);
+}
+
+.tarjeta-acceso .icono {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.tarjeta-acceso h3 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    font-family: sans-serif;
+}
+
+.tarjeta-acceso p {
+    color: #555555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-family: sans-serif;
+}
+
+/* Botones de ingreso estilo bloque */
+.btn-ingreso {
+    display: block;
+    text-decoration: none;
+    background-color: #14a544; /* Verde que hace juego con tu botón volver */
+    color: #ffffff;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-ingreso:hover {
+    background-color: #118737;
+    transform: scale(1.02);
+}
+
+/* Variación cromática para la tarjeta de Administración */
+.tarjeta-acceso.adm {
+    background-color: #fafbfc;
+}
+
+/* El botón de administrador usa el color violeta de tu menú para generar contraste */
+.btn-ingreso.btn-adm {
+    background-color: rgb(147, 13, 224);
+}
+
+.btn-ingreso.btn-adm:hover {
+    background-color: #7209b7;
 }
