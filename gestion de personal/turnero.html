@@ -49,143 +49,162 @@
         </section>
 
         <section class="seccion-registro-dias">
-        <h3>Registrar Agenda Semanal</h3>
-        <form id="form-dias">
-            <div class="tabla-agenda-contenedor">
-                <table class="tabla-agenda">
+            <h3>Registrar Agenda Semanal</h3>
+            <form id="form-dias">
+                <div class="tabla-agenda-contenedor">
+                    <table class="tabla-agenda">
+                        <thead>
+                            <tr>
+                                <th>Asistir</th>
+                                <th>Día</th>
+                                <th>Calendario</th>
+                                <th>Turno Disponible</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" name="dia-check" value="Lunes"></td>
+                                <td>Lunes</td>
+                                <td><input type="date" class="fecha-registro-individual" data-dia="Lunes"></td>
+                                <td>
+                                    <select class="turno-select" data-dia="Lunes">
+                                        <option value="None">None</option>
+                                        <option value="Mañana">Mañana</option>
+                                        <option value="Tarde">Tarde</option>
+                                        <option value="Completo">Completo</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="dia-check" value="Martes"></td>
+                                <td>Martes</td>
+                                <td><input type="date" class="fecha-registro-individual" data-dia="Martes"></td>
+                                <td>
+                                    <select class="turno-select" data-dia="Martes">
+                                        <option value="None">None</option>
+                                        <option value="Mañana">Mañana</option>
+                                        <option value="Tarde">Tarde</option>
+                                        <option value="Completo">Completo</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="dia-check" value="Miércoles"></td>
+                                <td>Miércoles</td>
+                                <td><input type="date" class="fecha-registro-individual" data-dia="Miércoles"></td>
+                                <td>
+                                    <select class="turno-select" data-dia="Miércoles">
+                                        <option value="None">None</option>
+                                        <option value="Mañana">Mañana</option>
+                                        <option value="Tarde">Tarde</option>
+                                        <option value="Completo">Completo</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="dia-check" value="Jueves"></td>
+                                <td>Jueves</td>
+                                <td><input type="date" class="fecha-registro-individual" data-dia="Jueves"></td>
+                                <td>
+                                    <select class="turno-select" data-dia="Jueves">
+                                        <option value="None">None</option>
+                                        <option value="Mañana">Mañana</option>
+                                        <option value="Tarde">Tarde</option>
+                                        <option value="Completo">Completo</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="dia-check" value="Viernes"></td>
+                                <td>Viernes</td>
+                                <td><input type="date" class="fecha-registro-individual" data-dia="Viernes"></td>
+                                <td>
+                                    <select class="turno-select" data-dia="Viernes">
+                                        <option value="None">None</option>
+                                        <option value="Mañana">Mañana</option>
+                                        <option value="Tarde">Tarde</option>
+                                        <option value="Completo">Completo</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="dia-check" value="Sábado"></td>
+                                <td>Sábado</td>
+                                <td><input type="date" class="fecha-registro-individual" data-dia="Sábado"></td>
+                                <td>
+                                    <select class="turno-select" data-dia="Sábado" disabled>
+                                        <option value="Completo" selected>Completo (Obligatorio)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="dia-check" value="Domingo"></td>
+                                <td>Domingo</td>
+                                <td><input type="date" class="fecha-registro-individual" data-dia="Domingo"></td>
+                                <td>
+                                    <select class="turno-select" data-dia="Domingo" disabled>
+                                        <option value="Completo" selected>Completo (Obligatorio)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="contenedor-botones-agenda" style="margin-top: 20px;">
+                    <button type="submit" class="btn-registrar">Registrar Días Seleccionados</button>
+                    <button type="button" id="btn-subsanar" class="btn-subsanar">✏️ Subsanar Error</button>
+                </div>
+
+            </form>
+        </section>
+
+        <section class="seccion-tabla-publica">
+            <h3>Historial de Turnos Registrados por el Personal</h3>
+
+            <div class="acciones-tabla" style="margin-bottom: 15px; display: flex; gap: 10px;">
+                <button type="button" id="btn-excel"
+                    style="background-color: #27ae60; color: white; border: none; padding: 10px 15px; border-radius: 4px; font-weight: bold; cursor: pointer;">
+                    📊 Exportar a Excel
+                </button>
+                <button type="button" id="btn-reiniciar"
+                    style="background-color: #c0392b; color: white; border: none; padding: 10px 15px; border-radius: 4px; font-weight: bold; cursor: pointer;">
+                    🔄 Reiniciar Semana
+                </button>
+            </div>
+
+            <div class="tabla-contenedor-publico">
+                <table class="tabla-publica" id="tabla-turnos-publicos">
                     <thead>
                         <tr>
-                            <th>Asistir</th>
-                            <th>Día</th>
-                            <th>Calendario</th>
-                            <th>Turno Disponible</th>
+                            <th>Empleado</th>
+                            <th>Profesión</th>
+                            <th>Día de la Semana</th>
+                            <th>Fecha Elegida</th>
+                            <th>Turno Asignado</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="checkbox" name="dia-check" value="Lunes"></td>
-                            <td>Lunes</td>
-                            <td><input type="date" class="fecha-registro-individual" data-dia="Lunes"></td>
-                            <td>
-                                <select class="turno-select" data-dia="Lunes">
-                                    <option value="None">None</option>
-                                    <option value="Mañana">Mañana</option>
-                                    <option value="Tarde">Tarde</option>
-                                    <option value="Completo">Completo</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="dia-check" value="Martes"></td>
-                            <td>Martes</td>
-                            <td><input type="date" class="fecha-registro-individual" data-dia="Martes"></td>
-                            <td>
-                                <select class="turno-select" data-dia="Martes">
-                                    <option value="None">None</option>
-                                    <option value="Mañana">Mañana</option>
-                                    <option value="Tarde">Tarde</option>
-                                    <option value="Completo">Completo</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="dia-check" value="Miércoles"></td>
-                            <td>Miércoles</td>
-                            <td><input type="date" class="fecha-registro-individual" data-dia="Miércoles"></td>
-                            <td>
-                                <select class="turno-select" data-dia="Miércoles">
-                                    <option value="None">None</option>
-                                    <option value="Mañana">Mañana</option>
-                                    <option value="Tarde">Tarde</option>
-                                    <option value="Completo">Completo</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="dia-check" value="Jueves"></td>
-                            <td>Jueves</td>
-                            <td><input type="date" class="fecha-registro-individual" data-dia="Jueves"></td>
-                            <td>
-                                <select class="turno-select" data-dia="Jueves">
-                                    <option value="None">None</option>
-                                    <option value="Mañana">Mañana</option>
-                                    <option value="Tarde">Tarde</option>
-                                    <option value="Completo">Completo</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="dia-check" value="Viernes"></td>
-                            <td>Viernes</td>
-                            <td><input type="date" class="fecha-registro-individual" data-dia="Viernes"></td>
-                            <td>
-                                <select class="turno-select" data-dia="Viernes">
-                                    <option value="None">None</option>
-                                    <option value="Mañana">Mañana</option>
-                                    <option value="Tarde">Tarde</option>
-                                    <option value="Completo">Completo</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="dia-check" value="Sábado"></td>
-                            <td>Sábado</td>
-                            <td><input type="date" class="fecha-registro-individual" data-dia="Sábado"></td>
-                            <td>
-                                <select class="turno-select" data-dia="Sábado" disabled>
-                                    <option value="Completo" selected>Completo (Obligatorio)</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="dia-check" value="Domingo"></td>
-                            <td>Domingo</td>
-                            <td><input type="date" class="fecha-registro-individual" data-dia="Domingo"></td>
-                            <td>
-                                <select class="turno-select" data-dia="Domingo" disabled>
-                                    <option value="Completo" selected>Completo (Obligatorio)</option>
-                                </select>
-                            </td>
-                        </tr>
+                    <tbody id="cuerpo-tabla-publica">
+                        <!-- JavaScript insertará las filas aquí de forma automática -->
                     </tbody>
                 </table>
             </div>
-
-            <button type="submit" class="btn-registrar" style="margin-top: 20px;">Registrar Días Seleccionados</button>
-        </form>
-    </section>
-
-    <section class="seccion-tabla-publica">
-        <h3>Historial de Turnos Registrados por el Personal</h3>
-
-        <div class="acciones-tabla" style="margin-bottom: 15px; display: flex; gap: 10px;">
-            <button type="button" id="btn-excel" style="background-color: #27ae60; color: white; border: none; padding: 10px 15px; border-radius: 4px; font-weight: bold; cursor: pointer;">
-                📊 Exportar a Excel
-            </button>
-            <button type="button" id="btn-reiniciar" style="background-color: #c0392b; color: white; border: none; padding: 10px 15px; border-radius: 4px; font-weight: bold; cursor: pointer;">
-                🔄 Reiniciar Semana
-            </button>
-        </div>
-
-        <div class="tabla-contenedor-publico">
-            <table class="tabla-publica" id="tabla-turnos-publicos">
-                <thead>
-                    <tr>
-                        <th>Empleado</th>
-                        <th>Profesión</th>
-                        <th>Día de la Semana</th>
-                        <th>Fecha Elegida</th>
-                        <th>Turno Asignado</th>
-                    </tr>
-                </thead>
-                <tbody id="cuerpo-tabla-publica">
-                    <!-- JavaScript insertará las filas aquí de forma automática -->
-                </tbody>
-            </table>
-        </div>
-    </section>
-
+        </section>
     </main>
+    
+    <div id="modal-subsanar" class="modal-oculto">
+        <div class="modal-contenido">
+            <span id="cerrar-modal" class="boton-cerrar">&times;</span>
+            <h3>Corregir Agenda de Empleado</h3>
+            <p><strong>Empleado:</strong> <span id="modal-nombre-empleado">-</span></p>
+            <p>Seleccione el turno que desea eliminar o corregir:</p>
+
+            <div id="modal-lista-turnos"></div>
+
+            <div class="modal-pie" style="margin-top: 15px; text-align: right;">
+                <button type="button" id="btn-cerrar-modal-ok" class="btn-registrar">Finalizar Corrección</button>
+            </div>
+        </div>
+    </div>
     <script src="gestion-js/script.js"></script>
 </body>
 

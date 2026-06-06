@@ -177,10 +177,44 @@ section h3 {
     cursor: pointer;
 }
 
-.btn-registrar {
+/*.btn-registrar {
     background-color: #2ecc71;
     width: 100%;
     font-weight: bold;
+}*/
+
+
+/* Contenedor Flexbox para poner los botones en línea */
+.contenedor-botones-agenda {
+    display: flex;
+    gap: 15px; /* Espacio de separación entre botones */
+    flex-wrap: wrap; /* Si la pantalla es muy chica, se acomodan uno abajo del otro */
+}
+
+/* Forzamos que tu botón registrar no use márgenes individuales molestos */
+.btn-registrar {
+    margin-top: 0 !important; 
+}
+
+/* Estilo para el nuevo botón de Subsanar Error */
+.btn-subsanar {
+    background-color: #f8d7da; /* Rojo/rosado muy sutil de alerta */
+    color: #721c24; /* Texto rojo oscuro */
+    border: 1px solid #f5c6cb;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efecto cuando pasás el mouse por encima */
+.btn-subsanar:hover {
+    background-color: #f5c6cb;
+    border-color: #f5c6cb;
+    color: #721c24;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .btn-registrar:hover {
@@ -284,4 +318,70 @@ section h3 {
 .tabla-publica tr:hover {
     background-color: #f8fafc;
 }
+
+/* Fondo oscuro translúcido que cubre toda la pantalla */
+.modal-oculto {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    justify-content: center;
+    align-items: center;
+}
+
+/* El cuadro blanco del contenedor */
+.modal-contenido {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: relative;
+    animation: aparecerModal 0.3s ease;
+}
+
+@keyframes aparecerModal {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Botón 'X' para cerrar */
+.boton-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+.boton-cerrar:hover { color: #000; }
+
+/* Renglones de turnos dentro del modal */
+.item-turno-modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background: #fdfefe;
+}
+
+/* Botón rojo para eliminar el turno individual */
+.btn-eliminar-turno {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-eliminar-turno:hover { background-color: #c0392b; }
 

@@ -27,6 +27,7 @@ const divMisDias = document.getElementById('mis-dias-guardados');
 
 const formDias = document.getElementById('form-dias');
 const cuerpoTablaPublica = document.getElementById('cuerpo-tabla-publica');
+const btnSubsanar = document.getElementById('btn-subsanar');
 
 // Restringir calendarios para no permitir fechas pasadas
 const hoy = new Date().toISOString().split('T');
@@ -315,5 +316,103 @@ document.getElementById('btn-reiniciar').addEventListener('click', () => {
             actualizarTablaPublica();
             alert("Sheduler reiniciado con éxito. El sistema quedó en cero listo para una nueva semana.");
         }
+    }
+});
+
+// 9. LÓGICA INTERACTIVA PARA SUBSANAR ERRORES CON MODAL INTERNO
+const modal = document.getElementById('modal-subsanar');
+const cerrarModalX = document.getElementById('cerrar-modal');
+const btnCerrarModalOk = document.getElementById('btn-cerrar-modal-ok');
+const modalNombre = document.getElementById('modal-nombre-empleado');
+const modalListaTurnos = document.getElementById('modal-lista-turnos');
+
+// Al hacer clic en el botón general de "Subsanar Error"
+btnSubsanar.addEventListener('click', () => {
+    // CUADRO 1: Solicita el DNI al usuario
+    const dniIngresado = prompt("Por favor, ingrese el DNI del empleado para subsanar un error:");
+    
+    if (dniIngresado === null) return; // Si cancela el prompt, no hace nada
+    const dniLimpio = dniIngresado.trim();
+
+    if (dniLimpio === "") {
+        alert("Debe ingresar un número de DNI válido.");
+        return;
+    }
+
+    const registroAsistencias = JSON.parse(localStorage.getItem('registroAsistencias')) || {};
+    const baseDatos = JSON.parse(localStorage.getItem('baseDatosPersonal')) || {};
+
+    // Validar si el DNI existe en el personal y si tiene turnos guardados
+    if (!baseDatos[dniLimpio]) {
+        alert("El DNI ingresado no se encuentra registrado en el sistema.");
+        return;
+    }
+    if (!registroAsistencias[dniLimpio] || registroAsistencias[dniLimpio].turnos.length === 0) {
+        alert(`El empleado ${baseDatos[dniLimpio].nombre} no posee turnos cargados para corregir.`);
+        return;
+    }
+
+    // CUADRO 2: Si todo está bien, abre la ventana emergente con sus datos
+    modalNombre.textContent = registroAsistencias[dniLimpio].nombre;
+    modal.style.display = "flex"; // Muestra el modal en pantalla
+
+    // Función interna para dibujar los turnos dentro de la ventana emergente
+    function renderizarTurnosModal() {
+        modalListaTurnos.innerHTML = ""; // Limpiamos la lista interna
+        const turnosActuales = registroAsistencias[dniLimpio].turnos;
+
+        if (turnosActuales.length === 0) {
+            modalListaTurnos.innerHTML = "<p style='color: gray; text-align:center;'>No quedan turnos registrados para este empleado.</p>";
+            return;
+        }
+
+        turnosActuales.forEach((turno, indice) => {
+            const item = document.createElement('div');
+            item.className = "item-turno-modal";
+            item.innerHTML = `
+                <span>📅 <strong>${turno.fechaFormateada}</strong> - ${turno.dia} (${turno.turno})</span>
+                <button type="button" class="btn-eliminar-turno" data-index="${indice}">❌ Eliminar</button>
+            `;
+            modalListaTurnos.appendChild(item);
+        });
+
+        // Escuchar los clics de los botones de eliminación individual de turnos
+        document.querySelectorAll('.btn-eliminar-turno').forEach(boton => {
+            boton.addEventListener('click', (e) => {
+                const idx = e.target.getAttribute('data-index');
+                
+                if (confirm(`¿Desea eliminar el turno del día ${turnosActuales[idx].dia} (${turnosActuales[idx].fechaFormateada})?`)) {
+                    // Removemos el turno seleccionado del array
+                    turnosActuales.splice(idx, 1);
+                    
+                    // Actualizamos los cambios en el LocalStorage
+                    registroAsistencias[dniLimpio].turnos = turnosActuales;
+                    localStorage.setItem('registroAsistencias', JSON.stringify(registroAsistencias));
+                    
+                    // Volvemos a pintar la lista del modal y refrescamos la tabla pública general
+                    renderizarTurnosModal();
+                    actualizarTablaPublica();
+                }
+            });
+        });
+    }
+
+    // Ejecuta el renderizado de los turnos del DNI ingresado
+    renderizarTurnosModal();
+});
+
+// Funciones básicas para cerrar la ventana flotante (Modal)
+cerrarModalX.addEventListener('click', () => modal.style.display = "none");
+btnCerrarModalOk.addEventListener('click', () => {
+    modal.style.display = "none";
+    formDias.reset();
+    limpiarFicha();
+    inputDni.value = "";
+});
+
+// Cerrar si hacen clic fuera del cuadro blanco
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
     }
 });
